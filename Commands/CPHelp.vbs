@@ -1,0 +1,1 @@
+X=MsgBox("都被Menu搶走啦",",0,"SakuraOS幫助")

@@ -1,0 +1,2 @@
+X=MsgBox("指令1-[help] 取得幫助" & chr(13) & "指令2-[ver] 用於查看版本" & chr(13) & "指令3-[time] 取得目前時間" & chr(13) & "指令4-[pcinfo] 此電腦的資訊" & chr(13) & "指令5-[update] 升級OS版本" & chr(13) & "指令6-[activation] 啟用此電腦" & chr(13) & "指令7-[unitro] 取得一個未檢查的Nitro網址" & chr(13) & "指令8-[notepad] 系統自帶文件編輯器" & chr(13) & "指令9-[sexplorer] 自帶網站瀏覽器" & chr(13) & "指令10-[gpuboost] 對GPU超頻",0,"SakuraOS幫助")
+X=MsgBox("指令11-[controlpanel] 打開控制台" & chr(13) & "指令12-[calc] 計算機",0,"SakuraOS幫助")
