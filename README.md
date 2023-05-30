@@ -51,3 +51,5 @@ Skiawm91幫助所有開發者寫了一個說明
 * 主要開發者：Hoyiqiang
 * 旁觀：Skiawm91
 * 旁觀：Lvzbx LzSyp
+
+* 我們真的是旁觀者
