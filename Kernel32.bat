@@ -45,6 +45,8 @@ set home="No Set Name"
 set keys=未啟用OS
 set copyorno=此系統沒有完成OOBE
 set channel=
+set oscp= 
+set oscpyu=false
 
 ::系統初始階段，啟動過程::
 
