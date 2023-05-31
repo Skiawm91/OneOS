@@ -29,7 +29,12 @@ Skiawm91幫助所有開發者寫了一個說明
 2. 接著將檔案直接拖入瀏覽器，或者按下中間的上傳
 3. 這樣就完成了
 4. 然後記得要打你對這次上傳做了什麼
-## 3 版本迭代
+## 3 UpdateData等其他位置
+* [UpdateData](https://github.com/Skiawm91/OSUpdateData)
+* [BetaUpdateData](https://github.com/Skiawm91/OSBetaUpdateData)
+* [DevUpdateData](https://github.com/Skiawm91/OSDevUpdateData)
+* [UpdateInfo](https://github.com/Skiawm91/OSUpdateInfo)
+## 4 版本迭代
 ### PreDev
 1. 2.98
 2. 2.98.162
@@ -48,5 +53,5 @@ Skiawm91幫助所有開發者寫了一個說明
 * 主要開發者：Hoyiqiang
 * 旁觀：Skiawm91
 * 旁觀：Lvzbx LzSyp
-
-* 我們真的是旁觀者
+<br/>
+**我們真的是旁觀者**
