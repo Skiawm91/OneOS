@@ -48,10 +48,3 @@ Skiawm91幫助所有開發者寫了一個說明
 7. 3.00.652
 ### Beta
 1. 3.00.3011
-# BreadOS-Developer
-## 1 開發人員
-* 主要開發者：Hoyiqiang
-* 旁觀：Skiawm91
-* 旁觀：Lvzbx LzSyp
-<br/>
-**我們真的是旁觀者**
