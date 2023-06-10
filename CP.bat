@@ -81,10 +81,7 @@ goto cpmenu
 goto bootmgr
 
 :cpsystem4
-goto update
-
-:cpsystem5
-goto channelupdate
+goto preupdate
 
 :theme
 if %themelod% == 07 (set buttonc=70) else (set buttonc=07)
@@ -306,12 +303,12 @@ echo set dbootsys=%setsys% >> autopen.bat
 echo ЧΘ砞﹚ > info.bat
 goto mgr
 
-:system
+:preupdate
 if %themelod% == 07 (set buttonc=70) else (set buttonc=07)
 color %themelod%
 cls
 echo ===========================================
-echo : 砞﹚ - ╰参                           :x:
+echo : 砞﹚ - ╰参 - 穝                    :x:
 echo ===========================================
 echo :                                         :
 echo :                                         :
@@ -326,16 +323,29 @@ echo ===========================================
 echo :         :                               :
 echo :         :               %date% :
 echo :         :                               :
-call Button 1 13 %buttonc% "Start" 35 9 %buttonc% "<-" 1 4 %buttonc% "Set BootMGR" 1 8 %buttonc% "Update" 1 12 "Update Channel" X _Var_Box _Var_Hover
+call Button 1 13 %buttonc% "Start" 35 9 %buttonc% "<-" 1 4 %buttonc% "Update" 1 8 %buttonc% "Set Channel" X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
-goto cpsystem%errorlevel%
+goto preupdate%errorlevel%
+
+:preupdate1
+set oscp=startmenu
+goto startmenu1
+
+:preupdate2
+goto system
+
+:preupdate3
+goto update
+
+:preupdate4
+goto channelupdate
 
 :channelupdate
 if %themelod% == 07 (set buttonc=70) else (set buttonc=07)
 color %themelod%
 cls
 echo ===========================================
-echo : 砞﹚ - ╰参 - 穝硄笵                 :x:
+echo : 砞﹚ - ╰参 - 穝 - 穝硄笵         :x:
 echo ===========================================
 echo :                                         :
 echo :                                         :
@@ -359,7 +369,7 @@ set oscp=startmenu
 goto startmenu1
 
 :update2
-goto system
+goto preupdate
 
 :update3
 cd ..\..\etc
@@ -403,7 +413,7 @@ goto channelupdate
 md temp
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - Update                :x:
+echo : 砞﹚ - ╰参 - 穝 - 浪琩穝      :x:
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -430,7 +440,7 @@ if EXIST %ver%_%channel% (goto noupdate) else (goto cupdate)
 if %oscpyu% == ture (echo ok) else (cd ..\..\..)
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - Update               :x:
+echo : 砞﹚ - ╰参 - 穝 - ⊿Τ穝      :x:
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -449,9 +459,11 @@ call Button 1 12 %buttonc% "Start" 31 8 %buttonc% " OK " X _Var_Box _Var_Hover
 goto noupdate%errorlevel%
 
 :noupdate2
-goto system
+set oscpyu=false
+goto preupdate
 
 :noupdate1
+set oscpyu=false
 set oscp=startmenu
 goto startmenu1
 
@@ -459,7 +471,7 @@ goto startmenu1
 cd ..\..\..
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - Update               :x:
+echo : 砞﹚ - ╰参 - 穝 - Τ穝穝    :x:
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -487,8 +499,20 @@ goto noupdate
 
 :installnew3
 cls
+cd temp
+cd %rnd%
+cd OSUpdateInfo
+call info_%channel%.bat
+echo.
+echo 5秨﹍穝
+timeout /t 5 /nobreak >nul
+goto installnew
+
+:installnew
+cd ..\..\..
+cls
 echo ========================================
-echo : 砞﹚ - ╰参 - Update               :x:
+echo : 砞﹚ - ╰参 - 穝 - 更穝戈  :x:
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -506,7 +530,7 @@ git clone https://github.com/Skiawm91/OS%channel%UpdateData.git
 cd OS%channel%UpdateData
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - Update               :x:
+echo : 砞﹚ - ╰参 - 穝 - 穝币笆      :x:
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -525,7 +549,7 @@ exit
 :cantuse
 cls
 echo ========================================
-echo : 砞﹚ - て - 岿粇                :x:
+echo : 砞﹚ - て - 岿粇              :x:
 echo ========================================
 echo :                                      :
 echo :                                      :
