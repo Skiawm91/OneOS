@@ -1,5 +1,5 @@
 @echo off
-title OneOS 砞﹚
+title OneOS ╰参砞﹚
 color %themelod%
 goto cpmenu
 
@@ -13,9 +13,9 @@ if %themelod% == 07 (set buttonc=70) else (set buttonc=07)
 color %themelod%
 cls
 echo ===========================================
-echo : 砞﹚                                  :x:
+echo :                 ╰参砞﹚                :
 echo ===========================================
-echo :                  砞﹚                   :
+echo :                                         :
 echo :                                         :
 echo :                                         :
 echo :                                         :
@@ -25,10 +25,10 @@ echo :                                         :
 echo :                                         :
 echo :                                         :
 echo ===========================================
-echo :         :                               :
-echo :         :               %date% :
-echo :         :                               :
-call Button 1 13 %buttonc% "Start" 11 5 %buttonc% "System" 22 5 %buttonc% "Theme" 33 9 %buttonc% "Exit" X _Var_Box _Var_Hover
+echo :        :                                :
+echo :        :                %date% :
+echo :        :                                :
+call Button 1 13 %buttonc% "Menu" 11 5 %buttonc% "System" 22 5 %buttonc% "Theme" 33 9 %buttonc% "Exit" X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto cpmenu%errorlevel%
 
@@ -51,7 +51,7 @@ if %themelod% == 07 (set buttonc=70) else (set buttonc=07)
 color %themelod%
 cls
 echo ===========================================
-echo : 砞﹚ - ╰参                           :x:
+echo :                 ╰参砞﹚                :
 echo ===========================================
 echo :                                         :
 echo :                                         :
@@ -63,10 +63,10 @@ echo :                                         :
 echo :                                         :
 echo :                                         :
 echo ===========================================
-echo :         :                               :
-echo :         :               %date% :
-echo :         :                               :
-call Button 1 13 %buttonc% "Start" 35 9 %buttonc% "<-" 1 4 %buttonc% "Set BootMGR" 1 8 %buttonc% "Update" 17 4 %buttonc% "Update Channel" X _Var_Box _Var_Hover
+echo :        :                                :
+echo :        :                %date% :
+echo :        :                                :
+call Button 1 13 %buttonc% "Start" 35 9 %buttonc% "<-" 1 4 %buttonc% "Set BootMGR" 1 8 %buttonc% "Update" X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto cpsystem%errorlevel%
 
@@ -88,7 +88,7 @@ if %themelod% == 07 (set buttonc=70) else (set buttonc=07)
 color %themelod%
 cls
 echo ===========================================
-echo : 砞﹚ - て                         :x:
+echo :                 ╰参砞﹚                :
 echo ===========================================
 echo :                                         :
 echo :                                         :
@@ -100,9 +100,9 @@ echo :                                         :
 echo :                                         :
 echo :                                         :
 echo ===========================================
-echo :         :                               :
-echo :         :               %date% :
-echo :         :                               :
+echo :        :                                :
+echo :        :                %date% :
+echo :        :                                :
 call Button 1 13 %buttonc% "Start" 35 9 %buttonc% "<-" 1 4 %buttonc% "Set Display Mode" X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto cptheme%errorlevel%
@@ -133,7 +133,7 @@ if %themelod% == 07 (set buttonc=70) else (set buttonc=07)
 color %themelod%
 cls
 echo ===========================================
-echo : 砞﹚ - て - 砞﹚陪ボ家Α          :x:
+echo :                 ╰参砞﹚                :
 echo ===========================================
 echo :                                         :
 echo :                                         :
@@ -145,9 +145,9 @@ echo :                                         :
 echo :                                         :
 echo :                                         :
 echo ===========================================
-echo :         :                               :
-echo :         :               %date% :
-echo :         :                               :
+echo :        :                                :
+echo :        :                %date% :
+echo :        :                                :
 call Button 1 13 %buttonc% "Start" 35 9 %buttonc% "<-" 14 4 %buttonc% "Dark Mode" 14 8 %buttonc% "Light Mode" X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto cplod%errorlevel%
@@ -167,7 +167,7 @@ goto light
 
 :light
 cd ..\..\etc
-echo set themelod=70 > infothemelod.bat
+echo set themelod=70 > themelod.bat
 timeout /t 1 >nul 2 >nul
 call infothemelod.bat
 cd ..\OneOS\System32
@@ -176,7 +176,7 @@ goto lod2
 
 :dark
 cd ..\..\etc
-echo set themelod=07 > infothemelod.bat 
+echo set themelod=07 > themelod.bat 
 timeout /t 1 >nul 2 >nul
 call infothemelod.bat
 cd ..\OneOS\System32
@@ -186,25 +186,6 @@ goto lod2
 :bootmgr
 cd ..\..\..\..\EFIStorage\profile
 goto mgr
-
-:setgui
-cls
-echo ========================================
-echo : 砞﹚ - ╰参 - 磀端玸腹           :x:
-echo ========================================
-echo :                                      :
-echo :                                      :
-echo :                                      :
-echo :                                      :
-echo :   瞷BETAず竚礚猭ㄏノ   :
-echo :                                      :
-echo :                                      :
-echo :                                      :
-echo :                                      :
-echo ========================================
-echo :start:                 %date%:
-pause > nul
-goto system
 
 :setguif
 cd ..\..\etc
@@ -216,7 +197,7 @@ goto setgui
 :mgr
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - 砞﹚BootMGR          :x:
+echo :                ╰参砞﹚              :
 echo ========================================
 echo :[-]≌⌒                               :
 echo :       砞﹚ - ╰参 - 砞﹚BootMGR      :
@@ -227,7 +208,7 @@ echo :           [3] 闽超箇砞秨币BootMGR    :
 echo :                                      :
 echo :                                      :
 echo ========================================
-echo :start:                 %date%:
+set /p comand=
 if %comand% == 1 goto delall
 if %comand% == 2 goto delauto
 if %comand% == 3 goto setos
@@ -241,7 +222,7 @@ cls
 del info.bat
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - 砞﹚BootMGR          :x:
+echo :               ╰参砞﹚               :
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -252,7 +233,6 @@ echo :                                      :
 echo :                                      :
 echo :                                      :
 echo ========================================
-echo :start:                 %date%:
 timeout /t 2 >nul
 goto mgr
 
@@ -260,7 +240,7 @@ goto mgr
 del autopen.bat
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - 砞﹚BootMGR          :x:
+echo :               ╰参砞﹚               :
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -271,7 +251,6 @@ echo :                                      :
 echo :                                      :
 echo :                                      :
 echo ========================================
-echo :start:                 %date%:
 timeout /t 2 >nul
 goto mgr
 
@@ -308,7 +287,7 @@ if %themelod% == 07 (set buttonc=70) else (set buttonc=07)
 color %themelod%
 cls
 echo ===========================================
-echo : 砞﹚ - ╰参 - 穝                    :x:
+echo :                 ╰参砞﹚                :
 echo ===========================================
 echo :                                         :
 echo :                                         :
@@ -320,10 +299,10 @@ echo :                                         :
 echo :                                         :
 echo :                                         :
 echo ===========================================
-echo :         :                               :
-echo :         :               %date% :
-echo :         :                               :
-call Button 1 13 %buttonc% "Start" 35 9 %buttonc% "<-" 1 4 %buttonc% "Update" 1 8 %buttonc% "Set Channel" X _Var_Box _Var_Hover
+echo :        :                                :
+echo :        :                %date% :
+echo :        :                                :
+call Button 1 13 %buttonc% "Menu" 35 9 %buttonc% "<-" 1 4 %buttonc% "Update" 1 8 %buttonc% "Set Channel" X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto preupdate%errorlevel%
 
@@ -345,7 +324,7 @@ if %themelod% == 07 (set buttonc=70) else (set buttonc=07)
 color %themelod%
 cls
 echo ===========================================
-echo : 砞﹚ - ╰参 - 穝 - 穝硄笵         :x:
+echo :                 ╰参砞﹚                :
 echo ===========================================
 echo :                                         :
 echo :                                         :
@@ -357,10 +336,10 @@ echo :                                         :
 echo :                                         :
 echo :                                         :
 echo ===========================================
-echo :         :                               :
-echo :         :               %date% :
-echo :         :                               :
-call Button 1 13 %buttonc% "Start" 35 9 %buttonc% "<-" 1 4 %buttonc% "Dev" 1 8 %buttonc% "Beta" 9 4 %buttonc% "Official" X _Var_Box _Var_Hover
+echo :        :                                :
+echo :        :                %date% :
+echo :        :                                :
+call %Button% 1 13 %buttonc% "Menu" 35 9 %buttonc% "<-" 1 4 %buttonc% "Dev" 1 8 %buttonc% "Beta" 9 4 %buttonc% "Official" X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto update%errorlevel%
 
@@ -373,7 +352,7 @@ goto preupdate
 
 :update3
 cd ..\..\etc
-echo set channel=Dev >> info.bat
+echo set channel=Dev>> info.bat
 call info.bat
 cd ..\OneOS\System32
 goto channelupdate
@@ -381,7 +360,7 @@ goto channelupdate
 :update4
 if sys%channel% == sysDev goto errdev
 cd ..\..\etc
-echo set channel=Beta >> info.bat
+echo set channel=Beta>> info.bat
 call info.bat
 cd ..\OneOS\System32
 goto channelupdate
@@ -397,7 +376,7 @@ goto channelupdate
 if sys%channel% == sysDev goto errdev
 if sys%channel% == sysBeta goto errbeta
 cd ..\..\etc
-echo set channel= >> info.bat
+echo set channel=Official>> info.bat
 call info.bat
 cd ..\OneOS\System32
 goto channelupdate
@@ -413,7 +392,7 @@ goto channelupdate
 md temp
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - 穝 - 浪琩穝      :x:
+echo :               ╰参砞﹚               :
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -432,15 +411,19 @@ cd temp
 set rnd=update%random%%random%
 md %rnd%
 cd %rnd%
-git clone https://github.com/Skiawm91/OSUpdateInfo.git
-cd OSUpdateInfo
-if EXIST %ver%_%channel% (goto noupdate) else (goto cupdate)
+%wget% https://github.com/Skiawm91/OSUpdateInfo/archive/refs/heads/main.zip
+ren main.zip OSUpdateInfo-main.zip
+C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\7za.exe e OSUpdateInfo-main.zip
+if EXIST "%ver%"_ (goto updates2) else (goto cupdate)
+
+:updates2
+if EXIST "%ver%"_%channel% (goto noupdate) else (goto cupdate)
 
 :noupdate
-if %oscpyu% == ture (echo ok) else (cd ..\..\..)
+if not %oscpyu% == true (cd ..\..\..)
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - 穝 - ⊿Τ穝      :x:
+echo :               ╰参砞﹚              :
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -468,10 +451,10 @@ set oscp=startmenu
 goto startmenu1
 
 :cupdate
-cd ..\..\..
+cd ..\..
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - 穝 - Τ穝穝    :x:
+echo :               ╰参砞﹚              :
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -482,10 +465,10 @@ echo :                                      :
 echo :                                      :
 echo :                                      :
 echo ========================================
-echo :         :                            :
-echo :         :            %date% :
-echo :         :                            :
-call Button 1 12 %buttonc% "Start" 10 8 %buttonc% "Later" 20 8 %buttonc% "Install"  X _Var_Box _Var_Hover
+echo :        :                             :
+echo :        :             %date% :
+echo :        :                             :
+call %Button% 1 12 %buttonc% "Menu" 10 8 %buttonc% "Later" 20 8 %buttonc% "Install"  X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto installnew%errorlevel%
 
@@ -501,7 +484,6 @@ goto noupdate
 cls
 cd temp
 cd %rnd%
-cd OSUpdateInfo
 call info_%channel%.bat
 echo.
 echo 5秨﹍穝
@@ -509,10 +491,10 @@ timeout /t 5 /nobreak >nul
 goto installnew
 
 :installnew
-cd ..\..\..
+cd ..\..
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - 穝 - 更穝戈  :x:
+echo :               ╰参砞﹚               :
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -526,11 +508,14 @@ echo ========================================
 timeout /t 5 >nul 2>nul
 echo Temp > NowUpdate.tmp
 cd SoftwareUpdate
-git clone https://github.com/Skiawm91/OS%channel%UpdateData.git
-cd OS%channel%UpdateData
+md OSUpdateData
+cd OSUpdateData
+if %channel% == Official (%wget% https://github.com/Skiawm91/OSUpdateData/archive/refs/heads/main.zip) else (%wget% https://github.com/Skiawm91/OS%channel%UpdateData/archive/refs/heads/main.zip)
+if %channel% == Official (C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\7za.exe e main.zip) else (C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\7za.exe e main.zip)
+del main.zip
 cls
 echo ========================================
-echo : 砞﹚ - ╰参 - 穝 - 穝币笆      :x:
+echo :               ╰参砞﹚               :
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -543,13 +528,14 @@ echo :                                      :
 echo ========================================
 timeout /t 5 /nobreak >nul
 cd ..
+cd ..
 start Kernel32.bat
 exit
 
 :cantuse
 cls
 echo ========================================
-echo : 砞﹚ - て - 岿粇              :x:
+echo :               ╰参砞﹚               :
 echo ========================================
 echo :                                      :
 echo :                                      :
@@ -560,9 +546,9 @@ echo :                                      :
 echo :                                      :
 echo :                                      :
 echo ========================================
-echo :         :                            :
-echo :         :            %date% :
-echo :         :                            :
+echo :        :                             :
+echo :        :             %date% :
+echo :        :                             :
 call Button 1 12 %buttonc% "Start" 31 8 %buttonc% " OK " X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto themerr%errorlevel%

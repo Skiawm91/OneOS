@@ -56,10 +56,15 @@ if exist NowUpdate.tmp (goto installupdate)
 ::無更新，接著載入組件::
 set button=C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\button.bat
 set getbutton=C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\GetInput.exe
+set 7za=C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\7za.exe
+set wget=C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\wget.exe
 cd ..\..\etc
-if NOT EXIST info.bat (goto setup) else (call sakosv3.bat)
+if NOT EXIST config.bat (goto oldinfobat) else (call sakos.bat)
 cls
 if EXIST dev (goto fastboot) else (goto boot)
+
+:oldinfobat
+if not exist info.bat (goto setup) else (call sakosv3.bat)
 
 :fastboot
 goto loginmenu
@@ -230,8 +235,9 @@ goto moresetup
 
 :moresetup
 cls
-echo set user1=%user1% > info.bat
-echo set passwd1=%passwd1% >> info.bat
+echo set user1=%user1% > config.bat
+echo set passwd1=%passwd1% >> config.bat
+call config.bat
 cd ..
 cd Users
 md %user1%
@@ -255,7 +261,7 @@ echo  5.重新啟動
 echo ==============================
 echo.
 set /p rootpasswd=請設定root密碼: 
-echo set root=%rootpasswd% >> info.bat
+echo set root=%rootpasswd% >> config.bat
 goto moresetup3
 
 :moresetup3
@@ -269,7 +275,7 @@ echo  5.重新啟動
 echo ==============================
 echo.
 set /p name=請設定主機名稱: 
-echo set home=%name% >> info.bat
+echo set home=%name% >> config.bat
 goto activation
 
 :activation
@@ -301,33 +307,33 @@ goto activation
 
 :skip
 set /p v=選擇版本(Pro/Basic): 
-echo set keys=未啟用OS，%v%版 >> info.bat
-echo set copyorno=此產品不是正版 >> info.bat
+echo set keys=未啟用OS，%v%版 >> config.bat
+echo set copyorno=此產品不是正版 >> config.bat
 goto reset
 
 :activationedpro
-echo set keys=已啟用OS，Pro版 >> info.bat
+echo set keys=已啟用OS，Pro版 >> config.bat
 echo pro > pro.bat
-echo set copyorno=此產品是正版 >> info.bat
+echo set copyorno=此產品是正版 >> config.bat
 Start ActivationDone.vbs
 goto reset
 
 :activationedbasic
-echo set keys=已啟用OS，Basic版 >> info.bat
+echo set keys=已啟用OS，Basic版 >> config.bat
 echo home > home.bat
-echo set copyorno=此產品是正版 >> info.bat
+echo set copyorno=此產品是正版 >> config.bat
 Start ActivationDone.vbs
 goto reset
 
 :load
 timeout /2 5 >nul 2>nul
-call sakosv3.bat
+call sakos.bat
 goto start
 
 :reset
 cd ..\OneOS\System32
 cd Drivers
-echo set gpu=VGA基本繪圖卡 > GPU.bat
+echo set gpu=SkHol Basic Graphics 1000 > GPU.bat
 cd ..
 start Kernel32.bat
 exit
@@ -599,7 +605,7 @@ call info.bat
 cd ..\OneOS\System32
 cls
 cd SoftwareUpdate
-cd OS%channel%UpdateData
+cd OSUpdateData
 start Setup.bat
 exit
 
@@ -629,10 +635,10 @@ echo.
 echo.                           通道: %osdata%
 echo.                           OneOS版本: %ver2%
 echo ===========================================
-echo :         :                               :
-echo :         :               %date% :
-echo :         :                               :
-call Button 1 14 %buttonc% "Start" 1 1 %buttonc% "Logout" 1 5 %buttonc% "Restart" 1 9 %buttonc% "PowerOFF"  X _Var_Box _Var_Hover
+echo :        :                                :
+echo :        :                %date% :
+echo :        :                                :
+call Button 1 14 %buttonc% "Menu" 1 1 %buttonc% "Logout" 1 5 %buttonc% "Restart" 1 9 %buttonc% "PowerOFF"  X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto desktop%errorlevel%
 
@@ -648,55 +654,55 @@ goto powereset
 :desktop4
 goto poweroff
 
-::開始菜單::
+::程式集::
 
 :startmenu1
 cls
 title OneOS
 if %themelod% == 07 (set buttonc=70) else (set buttonc=07)
 color %themelod%
-echo 開始======================================
-echo.                                         :
-echo.                                         :
-echo.                                         :
-echo.                                         :
-echo.                                         :
-echo.                                         :
-echo.                                         : 
-echo.                                         :
-echo.                                         :
-echo.                                         :
-echo.                                         : 
-echo.                                         :
-echo ==========================================
-call %button% 0 2 %buttonc% "Help" 9 2 %buttonc% "PCinfo" 20 2 %buttonc% "Calc" 29 2 %buttonc% "Settings" 0 6 %buttonc% "Desktop" 12 6 %buttonc% "SExplorer" 26 6 %buttonc% "SGPUBoost-X" 0 10 %buttonc% "Command Mode" 17 10 %buttonc% " Time " 28 10 %buttonc% "Menu Down" X _Var_Box _Var_Hover
+echo =================程式集 [1]================
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo ===========================================
+call %button% 1 2 %buttonc% "Help" 10 2 %buttonc% "PCinfo" 21 2 %buttonc% "Calc" 30 2 %buttonc% "Settings" 1 6 %buttonc% "Desktop" 13 6 %buttonc% "SExplorer" 27 6 %buttonc% "SGPUBoost-X" 1 10 %buttonc% "Command Mode" 18 10 %buttonc% " Time " 29 10 %buttonc% "Menu Down" X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto start%errorlevel%
 
-::開始菜單II::
+::程式集II::
 
 :startmenuii
 cls
 color %themelod%
-echo 開始======================================
-echo.                                         :
-echo.                                         :
-echo.                                         :
-echo.                                         :
-echo.                                         :
-echo.                                         :
-echo.                                         : 
-echo.                                         :
-echo.                                         :
-echo.                                         :
-echo.                                         : 
-echo.                                         :
-echo ==========================================
-call %button% 0 2 %buttonc% "NotePad" 31 10 %buttonc% "MenuUp" X _Var_Box _Var_Hover
+echo =================程式集 [2]================
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo :                                         :
+echo ===========================================
+call %button% 1 2 %buttonc% "NotePad" 32 10 %buttonc% "MenuUp" X _Var_Box _Var_Hover
 %getbutton% /M %_Var_Box% /H %_Var_Hover%
 goto startii%errorlevel%
 
-::開始菜單操作::
+::程式集操作::
 
 :start1
 goto help
