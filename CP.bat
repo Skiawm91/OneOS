@@ -458,11 +458,45 @@ goto preupdate
 
 :downgrade
 cls
+echo 3.00.652
+echo 3.00.856
 echo 3.00.1011
+echo 3.00.1145
 set /p downgradever=Version= 
+if %downgradever% == 3.00.652 (goto downgrade652)
+if %downgradever% == 3.00.856 (goto downgrade856)
 if %downgradever% == 3.00.1011 (goto downgrade1011)
+if %downgradever% == 3.00.1145 (goto downgrade1145)
 if %downgradever% == exit (goto preupdate)
 goto downgrade
+
+:downgrade652
+echo Temp > NowUpdate.tmp
+cd SoftwareUpdate
+md OSUpdateData
+cd OSUpdateData
+%wget% https://github.com/Skiawm91/OSUpdateData/archive/dd788682b85fde185a8bb78f331509b131a028b2.zip
+C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\7za.exe e dd788682b85fde185a8bb78f331509b131a028b2.zip
+del dd788682b85fde185a8bb78f331509b131a028b2.zip
+cd ..\..\..\..\etc
+del /F /Q config.bat
+cd ..\OneOS\System32
+start Kernel32.bat
+exit
+
+:downgrade856
+echo Temp > NowUpdate.tmp
+cd SoftwareUpdate
+md OSUpdateData
+cd OSUpdateData
+%wget% https://github.com/Skiawm91/OSUpdateData/archive/cd012b53caa77b97a3230c688c4d478a816c91f3.zip
+C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\7za.exe e cd012b53caa77b97a3230c688c4d478a816c91f3.zip
+del cd012b53caa77b97a3230c688c4d478a816c91f3.zip
+cd ..\..\..\..\etc
+del /F /Q config.bat
+cd ..\OneOS\System32
+start Kernel32.bat
+exit
 
 :downgrade1011
 echo Temp > NowUpdate.tmp
@@ -472,6 +506,20 @@ cd OSUpdateData
 %wget% https://github.com/Skiawm91/OSUpdateData/archive/018bef29501c745978b207d6a0b7561c51c3afc4.zip
 C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\7za.exe e 018bef29501c745978b207d6a0b7561c51c3afc4.zip
 del 018bef29501c745978b207d6a0b7561c51c3afc4.zip
+cd ..\..\..\..\etc
+del /F /Q config.bat
+cd ..\OneOS\System32
+start Kernel32.bat
+exit
+
+:downgrade1145
+echo Temp > NowUpdate.tmp
+cd SoftwareUpdate
+md OSUpdateData
+cd OSUpdateData
+%wget% https://github.com/Skiawm91/OSUpdateData/archive/10d608424a5f120bd9c33fe86a7ee379615adad6.zip
+C:\SakuraPC\Systems\GPT\OneOS\Storage\OneOS\System32\7za.exe e 10d608424a5f120bd9c33fe86a7ee379615adad6.zip
+del 10d608424a5f120bd9c33fe86a7ee379615adad6.zip
 cd ..\..\..\..\etc
 del /F /Q config.bat
 cd ..\OneOS\System32
@@ -643,7 +691,7 @@ set oscp=startmenu
 goto startmenu1
 
 :installnew2
-set oscpyu=ture
+set oscpyu=true
 goto noupdate
 
 :installnew3

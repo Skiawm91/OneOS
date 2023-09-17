@@ -105,7 +105,7 @@ set channel=Official
 set oscp= 
 set oscpyu=false
 set auinfo=OFF
-set usrpasswd=flase
+set usrpasswd=true
 set bootspeed=0
 set oeminfo=0
 set hideroot=0
@@ -138,7 +138,7 @@ if not exist info.bat (goto setup) else (call sakosv3.bat)
 
 :autoupdate
 cd ..\OneOS\System32
-start AutoUpdate.bat _
+start/min AutoUpdate.bat
 cd ..\..\etc
 if EXIST dev (goto fastboot) else (goto boot)
 
@@ -332,7 +332,7 @@ if %unlock% == 0 (goto moresetup12) else (goto moresetup13)
 
 :moresetup13
 echo set user1=%user1%>> config.bat
-if "%passwd1%" == " " (set usrpasswd=false)
+if "%passwd1%" == " " (echo set usrpasswd=false >> config.bat)
 echo set passwd1=%passwd1%>> config.bat
 call config.bat
 cd ..
@@ -348,7 +348,7 @@ goto oobe2
 
 :moresetup12
 echo set user1=%user1%> config.bat
-if "%passwd1%" == " " (set usrpasswd=false)
+if "%passwd1%" == " " (echo set usrpasswd=false >> config.bat)
 echo set passwd1=%passwd1%>> config.bat
 call config.bat
 cd ..
@@ -795,9 +795,6 @@ if %hideroot% == 5 (goto rootmenu) else (goto loginmenu)
 ::更新組件::
 
 :installupdate
-cd ..\..\etc
-cd ..\OneOS\System32
-cls
 cd SoftwareUpdate
 cd OSUpdateData
 start Setup.bat
