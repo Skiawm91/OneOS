@@ -1,8 +1,7 @@
 # OneOS Source Code
 ## 1 開發人員
-* 主要開發者：FuckingSkiawm91
-* 次要開發者：Lvzbx LzSyp
-* 旁觀：Hoyiqiang
+* 主要開發者：Skiawm91
+* 旁觀：Hoyiqiang、Lao (Zhong) Se (Yang) Pi
 ## 2 如何編譯
 無法於Github執行編譯，否則UTF-8沒得跑
 <br/>
