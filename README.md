@@ -1,7 +1,7 @@
-# OneOS Source Code
+# OneOS Source Code (永久停於4.00 (2a1556085dev))
 ## 1 開發人員
 * 主要開發者：Skiawm91
-* 旁觀：Hoyiqiang、Lao (Zhong) Se (Yang) Pi
+* 旁觀：Hoyiqiang、LzSyP
 ## 2 如何編譯
 無法於Github執行編譯，否則UTF-8沒得跑
 <br/>
@@ -37,7 +37,7 @@ Skiawm91幫助所有開發者寫了一個說明
 ### PreDev
 1. 2.98 (1a8257954rd)
 2. 2.98.162 (1a121954rd)
-### Dev
+### Dev (不再更新)
 1. 3.00 (1A047)
 2. 3.00.63 (1A254)
 3. 3.00.72 (1A422)
